@@ -1,0 +1,3 @@
+[submodule "pico-lib"]
+	path = pico-lib
+	url = git@github.com:peterzimon/pico-lib.git
