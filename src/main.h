@@ -31,6 +31,14 @@
 #include "hardware/adc.h"
 #include "hardware/uart.h"
 
+/*
+ * CONSTANTS
+ */
+#define DAC_SPI_PORT spi0
+#define PIN_DAC_SCK 4
+#define PIN_DAC_SDI 5
+#define PIN_DAC_CS 7
+
 #ifdef __cplusplus
 extern "C" {
 #endif
