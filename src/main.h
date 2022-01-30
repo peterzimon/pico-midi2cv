@@ -35,9 +35,9 @@
  * CONSTANTS
  */
 #define DAC_SPI_PORT spi0
-#define PIN_DAC_SCK 4
-#define PIN_DAC_SDI 5
-#define PIN_DAC_CS 7
+#define PIN_DAC_CS 5
+#define PIN_DAC_SCK 6
+#define PIN_DAC_MOSI 7
 
 #ifdef __cplusplus
 extern "C" {

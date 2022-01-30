@@ -16,8 +16,13 @@ int main() {
     // Use for debugging
     stdio_init_all();
 
-    dac.init(DAC_SPI_PORT, PIN_DAC_CS, PIN_DAC_SCK, PIN_DAC_SDI);
-    dac.write(2000);
+    // Test DAC
+    dac.init(DAC_SPI_PORT, PIN_DAC_CS, PIN_DAC_SCK, PIN_DAC_MOSI);
+    dac.write(2000); // 2V on the output of dacA (default)
+
+    while (true) {
+        sleep_ms(1000);
+    }
 
     return 0;
 }
