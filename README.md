@@ -1,5 +1,9 @@
-# MIDI to CV converter 
+# MIDI to CV converter
 
+## 🚧 WIP 🚧
+This project is currently under development.
+
+## About
 A simple MIDI to CV converter using MCP4288 DAC.
 
 ## Dependecies
