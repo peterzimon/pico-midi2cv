@@ -11,7 +11,7 @@
 #define _SRC_MAIN_H
 
 /*
- * C++ HEADERS
+ * C++ headers
  */
 #include <iostream>
 #include <string>
@@ -21,7 +21,7 @@
 #include <cstring>
 
 /*
- * PICO HEADERS
+ * Pico headers
  */
 #include "pico/stdlib.h"
 #include "pico/binary_info.h"
@@ -31,8 +31,13 @@
 #include "hardware/adc.h"
 #include "hardware/uart.h"
 
+/* 
+ * Custom libraries
+ */
+#include <mcp48x2.h>
+
 /*
- * CONSTANTS
+ * Constants
  */
 #define DAC_SPI_PORT spi0
 #define PIN_DAC_CS 5

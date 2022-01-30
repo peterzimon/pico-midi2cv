@@ -8,7 +8,6 @@
  *
  */
 #include "main.h"
-#include <mcp48x2.h>
 
 mcp48x2 dac;
 
