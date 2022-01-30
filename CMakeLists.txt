@@ -6,6 +6,8 @@ add_executable(${PROJECT_NAME}
 
 pico_sdk_init()
 
+add_subdirectory(./pico-lib)
+
 pico_enable_stdio_usb(${PROJECT_NAME} 1)
 pico_enable_stdio_uart(${PROJECT_NAME} 1)
 pico_add_extra_outputs(${PROJECT_NAME})
@@ -16,4 +18,5 @@ target_link_libraries(${PROJECT_NAME}
                         hardware_i2c
                         hardware_spi
                         hardware_adc
-                        hardware_uart)
+                        hardware_uart
+                        mcp48x2)

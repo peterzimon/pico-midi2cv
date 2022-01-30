@@ -8,6 +8,7 @@
  *
  */
 #include "main.h"
+#include <mcp48x2.h>
 
 int main() {
     // Use for debugging
