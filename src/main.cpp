@@ -10,7 +10,7 @@
 #include "main.h"
 #include <mcp48x2.h>
 
-MCP48X2 dac;
+mcp48x2 dac;
 
 int main() {
     // Use for debugging
@@ -18,10 +18,12 @@ int main() {
 
     // Test DAC
     dac.init(DAC_SPI_PORT, PIN_DAC_CS, PIN_DAC_SCK, PIN_DAC_MOSI);
-    dac.write(2000); // 2V on the output of dacA (default)
 
     while (true) {
-        sleep_ms(1000);
+        dac.write(2000); // 2V on the output of dacA
+        sleep_ms(2000);
+        dac.write(0); // 0V on the output of dacA
+        sleep_ms(2000);
     }
 
     return 0;
