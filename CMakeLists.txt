@@ -1,8 +1,10 @@
+file(GLOB FILES src/*.cpp src/*.h)
+
 cmake_minimum_required(VERSION 3.22)
 include(pico_sdk_import.cmake)
 project(pico-midi2cv VERSION 1.0.0)
 add_executable(${PROJECT_NAME}
-                src/main.cpp)
+                ${FILES})
 
 pico_sdk_init()
 
@@ -19,4 +21,6 @@ target_link_libraries(${PROJECT_NAME}
                         hardware_spi
                         hardware_adc
                         hardware_uart
-                        mcp48x2)
+                        mcp48x2
+                        ringbuffer
+                        midi_parser)
