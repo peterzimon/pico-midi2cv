@@ -75,34 +75,35 @@
  * Project headers
  */
 #include "settings.h"
-#include "midi_handler.h"
+#include "midi.h"
 #include "ui.h"
 #include "midi_to_cv.h"
 
+Settings settings;
 MCP48X2 dac;
-MidiHandler midi_handler;
+MidiHandler midi;
 UI ui;
 MidiToCV midi_to_cv;
 
 int main() {
-    // Use for debugging
     stdio_init_all();
 
     dac.init(DAC_SPI_PORT, GP_DAC_CS, GP_DAC_SCK, GP_DAC_MOSI);
-    midi_handler.init();
+    midi.init();
     ui.init();
     midi_to_cv.init();
 
-    midi_to_cv.attach(&midi_handler);
+    midi_to_cv.attach(&midi);
     midi_to_cv.attach(&dac);
     midi_to_cv.attach(&ui);
-
+    
     while (1) {
-        // There's no sequencer yet, but it'll work like this
+        // There's no sequencer yet but once there's one it'll work like this:
         // if (sequencer.is_playing) {
         //    sequencer.process();
         // } else {
         midi_to_cv.process();
+    
         // }
     }
 
