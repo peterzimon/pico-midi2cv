@@ -27,23 +27,24 @@ void MidiToCV::attach(MidiHandler *midi_handler) {
  */
 void MidiToCV::process() {
     m_midi_handler->read_midi();
+    // ...
 }
 
-uint16_t MidiToCV::cv_for_note(uint8_t note, int voice) {
+uint16_t MidiToCV::get_cv_for_note(uint8_t note) {
 
     // Return calibrated CV value
-    uint8_t tNote = note;
+    uint8_t t_note = note;
     uint8_t notes = OCTAVES * 12;
-    if (tNote > LOWEST_MIDI_NOTE + notes) {
-        tNote = LOWEST_MIDI_NOTE + notes;
+    if (t_note > LOWEST_MIDI_NOTE + notes) {
+        t_note = LOWEST_MIDI_NOTE + notes;
     }
-    uint8_t octave = floor(tNote / 12) + 1;
-    uint16_t voltPerOctave = (uint16_t) (MAX_NOTE_VOLTAGE / OCTAVES);
-    uint16_t rawCVlo = voltPerOctave * (octave - 1);
-    uint16_t rawCVhi = voltPerOctave * octave;
+    uint8_t octave = floor(t_note / 12) + 1;
+    uint16_t volt_per_octave = (uint16_t) (MAX_NOTE_VOLTAGE / OCTAVES);
+    uint16_t raw_cv_lo = volt_per_octave * (octave - 1);
+    uint16_t raw_cv_hi = volt_per_octave * octave;
 
-    uint16_t rawCV = (uint16_t)Utils::map(tNote, LOWEST_MIDI_NOTE, (LOWEST_MIDI_NOTE + notes), 0, MAX_NOTE_VOLTAGE);
-    uint16_t cv = (uint16_t)Utils::map(rawCV, rawCVlo, rawCVhi, (rawCVlo + settings.calibration[octave - 1]), (rawCVhi + settings.calibration[octave]));
+    uint16_t raw_cv = (uint16_t)Utils::map(t_note, LOWEST_MIDI_NOTE, (LOWEST_MIDI_NOTE + notes), 0, MAX_NOTE_VOLTAGE);
+    uint16_t cv = (uint16_t)Utils::map(raw_cv, raw_cv_lo, raw_cv_hi, (raw_cv_lo + settings.calibration[octave - 1]), (raw_cv_hi + settings.calibration[octave]));
 
     // return cv + _pitchBendCV;
     return cv;

@@ -15,7 +15,7 @@ public:
     void attach(UI *ui);
     void attach(MidiHandler *midi_handler);
     void process();
-    static uint16_t cv_for_note(uint8_t note, int voice);
+    static uint16_t get_cv_for_note(uint8_t note);
 
 private:
     MCP48X2 *m_dac;
