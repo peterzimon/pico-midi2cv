@@ -24,7 +24,7 @@
 
 #define MIDI_UART_INSTANCE uart1
 #define GP_MIDI_RX 9
-#define GP_MIDI_BAUDRATE 31250
+#define MIDI_BAUDRATE 31250
 
 // CV
 #define MAX_NOTE_VOLTAGE 4095
