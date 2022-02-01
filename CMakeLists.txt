@@ -23,4 +23,5 @@ target_link_libraries(${PROJECT_NAME}
                         hardware_uart
                         mcp48x2
                         ringbuffer
-                        midi_parser)
+                        midi_parser
+                        utils)
