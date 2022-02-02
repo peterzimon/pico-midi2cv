@@ -4,6 +4,8 @@ void MidiHandler::init() {
     m_input_buffer.init(m_buffer_var, MIDI_BUFFER_SIZE);
     m_gate = 0;
     m_cv = 0;
+    bend = PITCH_BEND_CENTER;
+    pitch_bend_dirty = false;
 
     // Set the first note of the note stack to -1. This indicates that there's
     // no incoming note (all notes released). The new notes always push all the
@@ -42,6 +44,12 @@ void MidiHandler::note_off(uint8_t channel, uint8_t note, uint8_t velocity) {
 
 void MidiHandler::pitch_bend(uint8_t channel, uint16_t bend) {
     this->bend = bend;
+    if (bend == m_last_pitch_bend) {
+        pitch_bend_dirty = false;
+    } else {
+        pitch_bend_dirty = true;
+        m_last_pitch_bend = bend;
+    }
 }
 
 /**

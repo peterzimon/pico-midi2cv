@@ -12,6 +12,7 @@
 
 class MidiHandler: public MidiParser {
 public:
+    bool pitch_bend_dirty;
     int note_stack[NOTE_STACK_SIZE];
     uint16_t bend;
     
@@ -26,6 +27,7 @@ private:
     uint8_t m_buffer_var[MIDI_BUFFER_SIZE];
     uint8_t m_note;
     uint16_t m_cv;
+    uint16_t m_last_pitch_bend;
     RingBuffer m_input_buffer;
 
     void m_parse_midi();

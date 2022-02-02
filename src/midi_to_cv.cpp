@@ -4,6 +4,7 @@
 void MidiToCV::init() {
     m_cv = 0;
     m_gate = false;
+    m_last_cv = 0;
 
     gpio_init(GP_GATE);
     gpio_set_dir(GP_GATE, GPIO_OUT);
@@ -41,14 +42,17 @@ void MidiToCV::process() {
     }
 
     // Get pitch bend
-    m_pitch_bend_cv = get_pitch_bend_cv(m_midi->bend);
+    if (m_midi->pitch_bend_dirty) {
+        m_pitch_bend_cv = get_pitch_bend_cv(m_midi->bend);
+    }
 
     // Set CV voltage
-    int cv = m_cv; // + m_pitch_bend_cv;
-    if (cv >= 0) {
-        m_dac->write((uint16_t)cv);
-    } else {
-        m_dac->write(0);
+    int cv = m_cv + m_pitch_bend_cv;
+    cv = cv < 0 ? 0 : cv;
+    
+    if (cv != m_last_cv) {
+        m_dac->write(cv);
+        m_last_cv = cv;
     }
 
     // Set gate
@@ -74,8 +78,13 @@ uint16_t MidiToCV::get_note_cv(uint8_t note) {
     return cv;
 }
 
-// @TODO: pitch to be calculated. There's something wrong ATM. it always returns 
-// some negative value instead of 0.
+/**
+ * Pitch bend value can be between 0 and 0x3fff with 0x2000 meaning no bend. 
+ * Pitch bend CV calculation:
+ * 1. Shift bend value to -0x2000 and 0x2000
+ * 2. Get max bend CV value (2 semitones)
+ * 3. Calculate actual bend CV value with the bend vs. max bend ratio
+*/
 int16_t MidiToCV::get_pitch_bend_cv(uint16_t bend) {
     int16_t shiftedBend = bend - PITCH_BEND_CENTER;
     uint8_t maxBendCV = (uint8_t) (MAX_NOTE_VOLTAGE / (OCTAVES * 12) * 2);

@@ -32,6 +32,7 @@ public:
 
 private:
     bool m_gate;
+    int m_last_cv;
     uint16_t m_cv;
     int16_t m_pitch_bend_cv;
 
