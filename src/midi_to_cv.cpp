@@ -7,6 +7,7 @@ void MidiToCV::init() {
 
     gpio_init(GP_GATE);
     gpio_set_dir(GP_GATE, GPIO_OUT);
+    gpio_pull_down(GP_GATE);
     gpio_put(GP_GATE, 0);
 }
 
@@ -43,7 +44,7 @@ void MidiToCV::process() {
     m_pitch_bend_cv = get_pitch_bend_cv(m_midi->bend);
 
     // Set CV voltage
-    int cv = m_cv + m_pitch_bend_cv;
+    int cv = m_cv; // + m_pitch_bend_cv;
     if (cv >= 0) {
         m_dac->write((uint16_t)cv);
     } else {
@@ -73,6 +74,8 @@ uint16_t MidiToCV::get_note_cv(uint8_t note) {
     return cv;
 }
 
+// @TODO: pitch to be calculated. There's something wrong ATM. it always returns 
+// some negative value instead of 0.
 int16_t MidiToCV::get_pitch_bend_cv(uint16_t bend) {
     int16_t shiftedBend = bend - PITCH_BEND_CENTER;
     uint8_t maxBendCV = (uint8_t) (MAX_NOTE_VOLTAGE / (OCTAVES * 12) * 2);
