@@ -1,4 +1,4 @@
-19226951774249981
+19235222498364981
 Battery
 BatteryHolder_Bulgin_BX0036_1xC
 Bulgin Battery Holder, BX0036, Battery Type C (https://www.bulgin.com/products/pub/media/bulgin/data/Battery_holders.pdf)
@@ -56308,6 +56308,13 @@ Yellow 5381 Series LED
 2
 2
 MCU_RaspberryPi_and_Boards
+C_Foil_P2.50mm
+C, Disc series, Radial, pin pitch=2.50mm, , diameter*width=5*2.5mm^2, Capacitor, http://cdn-reichelt.de/documents/datenblatt/B300/DS_KERKO_TC.pdf
+C Disc series Radial pin pitch 2.50mm  diameter 5mm width 2.5mm Capacitor
+0
+2
+2
+MCU_RaspberryPi_and_Boards
 Crystal_SMD_HC49-US
 SMD Crystal HC-49-SD http://cdn-reichelt.de/documents/datenblatt/B400/xxx-HC49-SMD.pdf, 11.4x4.7mm^2 package
 SMD SMT crystal
@@ -83699,6 +83706,13 @@ Through hole pin header THT 2x05 2.54mm double row
 10
 10
 Zimo_Manual_PCB
+Gyeszno
+
+
+0
+0
+0
+Zimo_Manual_PCB
 HIROSE-DM3CS-SF-MFG
 
 
@@ -83783,6 +83797,13 @@ Meanwell_DKMWx0F_TopView
 6
 6
 Zimo_Manual_PCB
+NSD1012D12
+NSD10-12D5-2
+Integrated Circuit
+0
+6
+6
+Zimo_Manual_PCB
 NSL25_01x02_Vertical
 
 
@@ -83797,6 +83818,13 @@ NSL25_01x02_Vertical-AudioJack
 2
 2
 Zimo_Manual_PCB
+NSL25_01x02_Vertical-AudioJack-TS
+
+
+0
+2
+2
+Zimo_Manual_PCB
 NSL25_01x03_Vertical
 
 
@@ -83805,6 +83833,13 @@ NSL25_01x03_Vertical
 3
 Zimo_Manual_PCB
 NSL25_02x03_Stacked
+
+
+0
+6
+6
+Zimo_Manual_PCB
+NSL25_02x03_Vertical
 
 
 0
