@@ -1,4 +1,4 @@
-#include "midi.h"
+#include "midi_handler.h"
 
 void MidiHandler::init() {
     m_input_buffer.init(m_buffer_var, MIDI_BUFFER_SIZE);
@@ -9,7 +9,7 @@ void MidiHandler::init() {
 
     // Set the first note of the note stack to -1. This indicates that there's
     // no incoming note (all notes released). The new notes always push all the
-    // other notes in the stack to he right but only until the [stack size - 1]
+    // other notes in the stack to the right but only until [stack size - 1]
     // is reached. This way -1 never gets deleted from the stack so we always
     // know when all notes are released.
     note_stack[0] = -1;
@@ -40,6 +40,7 @@ void MidiHandler::note_on(uint8_t channel, uint8_t note, uint8_t velocity) {
 void MidiHandler::note_off(uint8_t channel, uint8_t note, uint8_t velocity) {
     m_pop_note(note);
     m_note = note_stack[0];
+    note_playing = (note_stack[0] != -1);
 }
 
 void MidiHandler::pitch_bend(uint8_t channel, uint16_t bend) {
@@ -50,6 +51,10 @@ void MidiHandler::pitch_bend(uint8_t channel, uint16_t bend) {
         pitch_bend_dirty = true;
         m_last_pitch_bend = bend;
     }
+}
+
+int MidiHandler::note() {
+    return m_note;
 }
 
 /**

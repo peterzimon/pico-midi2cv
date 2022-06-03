@@ -1,7 +1,6 @@
 /**
- * @file main.cpp
- * @author Zimo (peter.zimon@gmail.com)
- * @brief 
+ * @author Peter Zimon (peterzimon.com)
+ * @copyright Copyright (c) 2022
  * 
  * Base logic
  * ----------
@@ -22,9 +21,6 @@
  * - Sets gate gpio
  * - Saves settings for MIDI to CV conversion (if there's any)
  * 
- * Sequencer
- * - Generates sequence based on the midi_handler note stack and UI input
- * 
  * UI
  * - Handles gpio for UI
  * 
@@ -33,17 +29,6 @@
  * midi_to_cv.attach(midi_handler)
  * midi_to_cv.attach(dac)
  * midi_to_cv.attach(ui)
- * 
- * sequencer.attach(midi_handler)
- * sequencer.attach(dac)
- * sequencer.attach(ui)
- * 
- * 
- * @version 0.1
- * @date 2022-01-31
- * 
- * @copyright Copyright (c) 2022
- * 
  */
 
 /*
@@ -75,13 +60,13 @@
  * Project headers
  */
 #include "settings.h"
-#include "midi.h"
+#include "midi_handler.h"
 #include "ui.h"
 #include "midi_to_cv.h"
 
 Settings settings;
 MCP48X2 dac;
-MidiHandler midi;
+MidiHandler midi_handler;
 UI ui;
 MidiToCV midi_to_cv;
 
@@ -89,22 +74,16 @@ int main() {
     stdio_init_all();
 
     dac.init(DAC_SPI_PORT, GP_DAC_CS, GP_DAC_SCK, GP_DAC_MOSI);
-    midi.init();
+    midi_handler.init();
     ui.init();
     midi_to_cv.init();
 
-    midi_to_cv.attach(&midi);
+    midi_to_cv.attach(&midi_handler);
     midi_to_cv.attach(&dac);
     midi_to_cv.attach(&ui);
     
     while (1) {
-        // There's no sequencer yet but once there's one it'll work like this:
-        // if (sequencer.is_playing) {
-        //    sequencer.process();
-        // } else {
         midi_to_cv.process();
-    
-        // }
     }
 
     return 0;

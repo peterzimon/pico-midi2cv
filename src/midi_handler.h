@@ -1,3 +1,16 @@
+/**
+ * @file midi_handler.h
+ * @author Peter Zimon (peterzimon.com)
+ * @brief 
+ * Stores incoming MIDI notes in a ring buffer and returns it as the notes are
+ * pushed or released. 
+ * 
+ * @version 0.1
+ * @date 2022-06-03
+ * 
+ * @copyright Copyright (c) 2022
+ */
+
 #ifndef _MIDI_HANDLER_H
 #define _MIDI_HANDLER_H
 
@@ -13,6 +26,7 @@
 class MidiHandler: public MidiParser {
 public:
     bool pitch_bend_dirty;
+    bool note_playing;
     int note_stack[NOTE_STACK_SIZE];
     uint16_t bend;
     
@@ -21,6 +35,7 @@ public:
     void note_on(uint8_t channel, uint8_t note, uint8_t velocity);
     void note_off(uint8_t channel, uint8_t note, uint8_t velocity);
     void pitch_bend(uint8_t channel, uint16_t bend);
+    int note();
 
 private:
     int m_gate;

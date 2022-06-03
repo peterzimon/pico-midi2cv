@@ -20,8 +20,8 @@ void MidiToCV::attach(UI *ui) {
     m_ui = ui;
 }
 
-void MidiToCV::attach(MidiHandler *midi) {
-    m_midi = midi;
+void MidiToCV::attach(MidiHandler *midi_handler) {
+    m_midi_handler = midi_handler;
 }
 
 /**
@@ -31,19 +31,19 @@ void MidiToCV::attach(MidiHandler *midi) {
 void MidiToCV::process() {
     
     // Read MIDI messages. This builds a note stack in m_midi.note_stack
-    m_midi->read();
+    m_midi_handler->read();
 
     // If there's a note playing
-    if (m_midi->note_stack[0] != -1) {
-        m_cv = get_note_cv(m_midi->note_stack[0]);
+    if (m_midi_handler->note_playing) {
+        m_cv = get_note_cv(m_midi_handler->note());
         m_gate = true;
     } else {
         m_gate = false;
     }
 
     // Get pitch bend
-    if (m_midi->pitch_bend_dirty) {
-        m_pitch_bend_cv = get_pitch_bend_cv(m_midi->bend);
+    if (m_midi_handler->pitch_bend_dirty) {
+        m_pitch_bend_cv = get_pitch_bend_cv(m_midi_handler->bend);
     }
 
     // Set CV voltage
