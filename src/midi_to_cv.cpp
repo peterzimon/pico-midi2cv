@@ -10,6 +10,28 @@ void MidiToCV::init() {
     gpio_set_dir(GP_GATE, GPIO_OUT);
     gpio_pull_down(GP_GATE);
     gpio_put(GP_GATE, 0);
+
+    // Read MIDI channel
+    gpio_init(GP_CHANNEL_DIP_0); gpio_set_dir(GP_CHANNEL_DIP_0, GPIO_IN); gpio_pull_down(GP_CHANNEL_DIP_0);
+    gpio_init(GP_CHANNEL_DIP_1); gpio_set_dir(GP_CHANNEL_DIP_1, GPIO_IN); gpio_pull_down(GP_CHANNEL_DIP_1);
+    gpio_init(GP_CHANNEL_DIP_2); gpio_set_dir(GP_CHANNEL_DIP_2, GPIO_IN); gpio_pull_down(GP_CHANNEL_DIP_2);
+    gpio_init(GP_CHANNEL_DIP_3); gpio_set_dir(GP_CHANNEL_DIP_3, GPIO_IN); gpio_pull_down(GP_CHANNEL_DIP_3);
+
+    int midi_ch_0 = gpio_get(GP_CHANNEL_DIP_0);
+    int midi_ch_1 = gpio_get(GP_CHANNEL_DIP_1);
+    int midi_ch_2 = gpio_get(GP_CHANNEL_DIP_2);
+    int midi_ch_3 = gpio_get(GP_CHANNEL_DIP_3);
+
+    printf("CH bit 0: %d\n\r", midi_ch_0);
+    printf("CH bit 1: %d\n\r", midi_ch_1);
+    printf("CH bit 2: %d\n\r", midi_ch_2);
+    printf("CH bit 3: %d\n\r", midi_ch_3);
+
+    uint8_t midi_ch = midi_ch_0 | midi_ch_1 << 1 | midi_ch_2 << 2 | midi_ch_3;
+
+    printf("Midi channel: %d\r\n", midi_ch);
+
+    settings.midi_channel = midi_ch;
 }
 
 void MidiToCV::attach(MCP48X2 *dac) {
@@ -33,7 +55,7 @@ void MidiToCV::process() {
     // Read MIDI messages. This builds a note stack in m_midi.note_stack
     m_midi_handler->read();
 
-    if (m_midi_handler->channel() != MIDI_CHANNEL) {
+    if (m_midi_handler->channel() != settings.midi_channel) {
         return;
     }
 

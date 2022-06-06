@@ -913,10 +913,6 @@ NoConn ~ 2200 1650
 NoConn ~ 2200 1750
 NoConn ~ 2200 1850
 NoConn ~ 2200 2350
-NoConn ~ 2200 2650
-NoConn ~ 2200 2750
-NoConn ~ 2200 2850
-NoConn ~ 2200 2950
 NoConn ~ 2200 3150
 NoConn ~ 3600 1350
 NoConn ~ 3600 1650
@@ -1090,4 +1086,77 @@ Wire Wire Line
 Wire Wire Line
 	9300 4100 9300 3750
 Connection ~ 9300 3750
+$Comp
+L Switch:SW_DIP_x04 SW_MIDI_CHANNEL1
+U 1 1 62C690BA
+P 5950 4800
+F 0 "SW_MIDI_CHANNEL1" H 5950 5267 50  0000 C CNN
+F 1 "SW_DIP_x04" H 5950 5176 50  0000 C CNN
+F 2 "Button_Switch_THT:SW_DIP_SPSTx04_Slide_6.7x11.72mm_W7.62mm_P2.54mm_LowProfile" H 5950 4800 50  0001 C CNN
+F 3 "~" H 5950 4800 50  0001 C CNN
+	1    5950 4800
+	1    0    0    -1  
+$EndComp
+$Comp
+L power:+3.3V #PWR0102
+U 1 1 62C6CDCC
+P 5400 4500
+F 0 "#PWR0102" H 5400 4350 50  0001 C CNN
+F 1 "+3.3V" H 5415 4673 50  0000 C CNN
+F 2 "" H 5400 4500 50  0001 C CNN
+F 3 "" H 5400 4500 50  0001 C CNN
+	1    5400 4500
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	5400 4500 5400 4600
+Wire Wire Line
+	5400 4900 5650 4900
+Wire Wire Line
+	5650 4800 5400 4800
+Connection ~ 5400 4800
+Wire Wire Line
+	5400 4800 5400 4900
+Wire Wire Line
+	5650 4700 5400 4700
+Connection ~ 5400 4700
+Wire Wire Line
+	5400 4700 5400 4800
+Wire Wire Line
+	5650 4600 5400 4600
+Connection ~ 5400 4600
+Wire Wire Line
+	5400 4600 5400 4700
+Text GLabel 6400 4600 2    50   Input ~ 0
+MIDI_CH_0
+Wire Wire Line
+	6400 4600 6250 4600
+Text GLabel 6400 4700 2    50   Input ~ 0
+MIDI_CH_1
+Text GLabel 6400 4800 2    50   Input ~ 0
+MIDI_CH_2
+Text GLabel 6400 4900 2    50   Input ~ 0
+MIDI_CH_3
+Wire Wire Line
+	6400 4700 6250 4700
+Wire Wire Line
+	6400 4800 6250 4800
+Wire Wire Line
+	6400 4900 6250 4900
+Text GLabel 1950 2650 0    50   Input ~ 0
+MIDI_CH_0
+Wire Wire Line
+	1950 2650 2200 2650
+Text GLabel 1950 2750 0    50   Input ~ 0
+MIDI_CH_1
+Text GLabel 1950 2850 0    50   Input ~ 0
+MIDI_CH_2
+Text GLabel 1950 2950 0    50   Input ~ 0
+MIDI_CH_3
+Wire Wire Line
+	1950 2750 2200 2750
+Wire Wire Line
+	1950 2850 2200 2850
+Wire Wire Line
+	1950 2950 2200 2950
 $EndSCHEMATC

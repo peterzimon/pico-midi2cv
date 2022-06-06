@@ -55,6 +55,11 @@
 #define MAX_PITCH_BEND      0x3fff
 #define PITCH_BEND_CENTER   0x2000
 
+#define GP_CHANNEL_DIP_0    10
+#define GP_CHANNEL_DIP_1    11
+#define GP_CHANNEL_DIP_2    12
+#define GP_CHANNEL_DIP_3    13
+
 #define MIDI_UART_INSTANCE  uart1
 #define GP_MIDI_RX          9
 #define MIDI_BAUDRATE       31250
@@ -62,8 +67,6 @@
 // CV
 #define MAX_NOTE_VOLTAGE    4095
 #define GP_GATE             15
-
-#define MIDI_CHANNEL        2
 
 struct Settings
 {
@@ -83,6 +86,8 @@ struct Settings
         0,      // C9    | 9V
         0,      // C10   | 10V
     };
+
+    uint8_t midi_channel = 0;
 };
 
 extern Settings settings;
