@@ -22,6 +22,7 @@ void MidiHandler::read() {
     if (!uart_is_readable(MIDI_UART_INSTANCE)) return;
     
     uint8_t data = uart_getc(MIDI_UART_INSTANCE);
+    printf("%d \r\n", data);
     m_input_buffer.write_byte(data);
 
     m_parse_midi();
@@ -35,6 +36,7 @@ void MidiHandler::note_on(uint8_t channel, uint8_t note, uint8_t velocity) {
 
     m_push_note(note);
     m_note = note;
+    note_playing = (note_stack[0] != -1);
 }
 
 void MidiHandler::note_off(uint8_t channel, uint8_t note, uint8_t velocity) {

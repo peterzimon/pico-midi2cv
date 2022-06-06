@@ -33,6 +33,10 @@ void MidiToCV::process() {
     // Read MIDI messages. This builds a note stack in m_midi.note_stack
     m_midi_handler->read();
 
+    if (m_midi_handler->channel() != MIDI_CHANNEL) {
+        return;
+    }
+
     // If there's a note playing
     if (m_midi_handler->note_playing) {
         m_cv = get_note_cv(m_midi_handler->note());

@@ -63,6 +63,8 @@
 #define MAX_NOTE_VOLTAGE    4095
 #define GP_GATE             15
 
+#define MIDI_CHANNEL        2
+
 struct Settings
 {
     int calibration[11] = {
