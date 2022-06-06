@@ -17,6 +17,9 @@
  * - Saves notes in a note stack for last-note-priority output
  * 
  * MidiToCV
+ * - Looks up the MIDI channel setting. Note that MIDI channel setting is only
+ *   scanned at boot. If you change the MIDI channel then you have to reboot
+ *   the system.
  * - Sets dac CV voltage based on the midi_handler note stack
  * - Sets gate gpio
  * - Saves settings for MIDI to CV conversion (if there's any)
