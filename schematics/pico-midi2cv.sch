@@ -27,12 +27,12 @@ $EndComp
 $Comp
 L power:+5V #PWR05
 U 1 1 61FC3DD2
-P 3750 1350
-F 0 "#PWR05" H 3750 1200 50  0001 C CNN
-F 1 "+5V" H 3765 1523 50  0000 C CNN
-F 2 "" H 3750 1350 50  0001 C CNN
-F 3 "" H 3750 1350 50  0001 C CNN
-	1    3750 1350
+P 3750 1100
+F 0 "#PWR05" H 3750 950 50  0001 C CNN
+F 1 "+5V" H 3765 1273 50  0000 C CNN
+F 2 "" H 3750 1100 50  0001 C CNN
+F 3 "" H 3750 1100 50  0001 C CNN
+	1    3750 1100
 	1    0    0    -1  
 $EndComp
 $Comp
@@ -50,10 +50,6 @@ Wire Wire Line
 	3750 3350 3750 3050
 Wire Wire Line
 	3750 1550 3600 1550
-Wire Wire Line
-	3600 1450 3750 1450
-Wire Wire Line
-	3750 1450 3750 1350
 Wire Wire Line
 	3600 2550 3750 2550
 Connection ~ 3750 2550
@@ -116,18 +112,14 @@ Wire Wire Line
 $Comp
 L power:+3.3V #PWR08
 U 1 1 61FD2D20
-P 4000 1350
-F 0 "#PWR08" H 4000 1200 50  0001 C CNN
-F 1 "+3.3V" H 4015 1523 50  0000 C CNN
-F 2 "" H 4000 1350 50  0001 C CNN
-F 3 "" H 4000 1350 50  0001 C CNN
-	1    4000 1350
+P 4000 1100
+F 0 "#PWR08" H 4000 950 50  0001 C CNN
+F 1 "+3.3V" H 4015 1273 50  0000 C CNN
+F 2 "" H 4000 1100 50  0001 C CNN
+F 3 "" H 4000 1100 50  0001 C CNN
+	1    4000 1100
 	1    0    0    -1  
 $EndComp
-Wire Wire Line
-	4000 1350 4000 1750
-Wire Wire Line
-	4000 1750 3600 1750
 Text GLabel 1950 3250 0    50   Input ~ 0
 GATE_OUT
 Wire Wire Line
@@ -135,51 +127,51 @@ Wire Wire Line
 $Comp
 L Analog_DAC:MCP4822 U3
 U 1 1 61FDC4D8
-P 5900 1850
-F 0 "U3" H 5900 2431 50  0000 C CNN
-F 1 "MCP4822" H 5900 2340 50  0000 C CNN
-F 2 "Zimo_Manual_PCB:DIP-8_W7.62mm" H 6700 1550 50  0001 C CNN
-F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf" H 6700 1550 50  0001 C CNN
-	1    5900 1850
+P 6600 1750
+F 0 "U3" H 6600 2331 50  0000 C CNN
+F 1 "MCP4822" H 6600 2240 50  0000 C CNN
+F 2 "Zimo_Manual_PCB:DIP-8_W7.62mm" H 7400 1450 50  0001 C CNN
+F 3 "http://ww1.microchip.com/downloads/en/DeviceDoc/20002249B.pdf" H 7400 1450 50  0001 C CNN
+	1    6600 1750
 	1    0    0    -1  
 $EndComp
 $Comp
 L power:+5V #PWR015
 U 1 1 61FDEFCD
-P 6300 1250
-F 0 "#PWR015" H 6300 1100 50  0001 C CNN
-F 1 "+5V" H 6315 1423 50  0000 C CNN
-F 2 "" H 6300 1250 50  0001 C CNN
-F 3 "" H 6300 1250 50  0001 C CNN
-	1    6300 1250
+P 7000 1150
+F 0 "#PWR015" H 7000 1000 50  0001 C CNN
+F 1 "+5V" H 7015 1323 50  0000 C CNN
+F 2 "" H 7000 1150 50  0001 C CNN
+F 3 "" H 7000 1150 50  0001 C CNN
+	1    7000 1150
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	6300 1250 6300 1450
+	7000 1150 7000 1350
 Wire Wire Line
-	6300 1450 5900 1450
+	7000 1350 6600 1350
 $Comp
 L power:GND #PWR012
 U 1 1 61FE047F
-P 5300 2350
-F 0 "#PWR012" H 5300 2100 50  0001 C CNN
-F 1 "GND" H 5305 2177 50  0000 C CNN
-F 2 "" H 5300 2350 50  0001 C CNN
-F 3 "" H 5300 2350 50  0001 C CNN
-	1    5300 2350
+P 6000 2250
+F 0 "#PWR012" H 6000 2000 50  0001 C CNN
+F 1 "GND" H 6005 2077 50  0000 C CNN
+F 2 "" H 6000 2250 50  0001 C CNN
+F 3 "" H 6000 2250 50  0001 C CNN
+	1    6000 2250
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
-	5400 1850 5300 1850
+	6100 1750 6000 1750
 Wire Wire Line
-	5300 1850 5300 2350
+	6000 1750 6000 2250
 Wire Wire Line
-	5300 2350 5900 2350
-Connection ~ 5300 2350
-Text GLabel 5200 2050 0    50   Input ~ 0
+	6000 2250 6600 2250
+Connection ~ 6000 2250
+Text GLabel 5900 1950 0    50   Input ~ 0
 DAC_CS
 Wire Wire Line
-	5200 2050 5400 2050
+	5900 1950 6100 1950
 Text GLabel 1950 1950 0    50   Input ~ 0
 DAC_CS
 Wire Wire Line
@@ -187,15 +179,15 @@ Wire Wire Line
 Text GLabel 1950 2150 0    50   Input ~ 0
 DAC_SCK
 Wire Wire Line
-	5200 1750 5400 1750
+	5900 1650 6100 1650
 Wire Wire Line
 	2200 2150 1950 2150
-Text GLabel 5200 1750 0    50   Input ~ 0
+Text GLabel 5900 1650 0    50   Input ~ 0
 DAC_SCK
-Text GLabel 5200 1950 0    50   Input ~ 0
+Text GLabel 5900 1850 0    50   Input ~ 0
 DAC_SDI
 Wire Wire Line
-	5200 1950 5400 1950
+	5900 1850 6100 1850
 Text GLabel 1950 2250 0    50   Input ~ 0
 DAC_SDI
 Wire Wire Line
@@ -352,20 +344,20 @@ $EndComp
 Wire Wire Line
 	4050 5450 4050 5400
 Connection ~ 4050 5400
-Text GLabel 6500 1750 2    50   Input ~ 0
+Text GLabel 7200 1650 2    50   Input ~ 0
 DAC_A
 Wire Wire Line
-	6500 1750 6400 1750
-Text GLabel 6500 2050 2    50   Input ~ 0
+	7200 1650 7100 1650
+Text GLabel 7200 1950 2    50   Input ~ 0
 DAC_B
 Wire Wire Line
-	6500 2050 6400 2050
-Text GLabel 6800 2350 0    50   Input ~ 0
+	7200 1950 7100 1950
+Text GLabel 7500 2250 0    50   Input ~ 0
 DAC_B
 Wire Wire Line
-	6800 2350 6900 2350
-NoConn ~ 6900 2350
-Text Notes 6500 2550 0    50   ~ 0
+	7500 2250 7600 2250
+NoConn ~ 7600 2250
+Text Notes 7200 2450 0    50   ~ 0
 Unused :(
 $Comp
 L Amplifier_Operational:LM358 U2
@@ -644,18 +636,15 @@ F 3 "~" H 2100 6800 50  0001 C CNN
 	1    2100 6800
 	1    0    0    -1  
 $EndComp
-Connection ~ 3450 6550
-Wire Wire Line
-	3450 6450 3450 6550
 $Comp
 L power:+5V #PWR04
 U 1 1 61FB6A62
-P 3450 6450
-F 0 "#PWR04" H 3450 6300 50  0001 C CNN
-F 1 "+5V" H 3465 6623 50  0000 C CNN
-F 2 "" H 3450 6450 50  0001 C CNN
-F 3 "" H 3450 6450 50  0001 C CNN
-	1    3450 6450
+P 3800 6450
+F 0 "#PWR04" H 3800 6300 50  0001 C CNN
+F 1 "+5V" H 3815 6623 50  0000 C CNN
+F 2 "" H 3800 6450 50  0001 C CNN
+F 3 "" H 3800 6450 50  0001 C CNN
+	1    3800 6450
 	1    0    0    -1  
 $EndComp
 Wire Wire Line
@@ -885,11 +874,6 @@ F 3 "~" H 750 1450 50  0001 C CNN
 	1    750  1450
 	1    0    0    -1  
 $EndComp
-Text GLabel 4200 1450 2    50   Input ~ 0
-SWD_VSYS
-Wire Wire Line
-	4200 1450 3750 1450
-Connection ~ 3750 1450
 Text GLabel 1050 1550 2    50   Input ~ 0
 SWD_VSYS
 Wire Wire Line
@@ -914,21 +898,6 @@ NoConn ~ 2200 1750
 NoConn ~ 2200 1850
 NoConn ~ 2200 2350
 NoConn ~ 2200 3150
-NoConn ~ 3600 1350
-NoConn ~ 3600 1650
-NoConn ~ 3600 1850
-NoConn ~ 3600 1950
-NoConn ~ 3600 2050
-NoConn ~ 3600 2150
-NoConn ~ 3600 2250
-NoConn ~ 3600 2350
-NoConn ~ 3600 2450
-NoConn ~ 3600 2650
-NoConn ~ 3600 2750
-NoConn ~ 3600 2850
-NoConn ~ 3600 2950
-NoConn ~ 3600 3150
-NoConn ~ 3600 3250
 $Comp
 L Connector:Conn_01x02_Male J_CV1
 U 1 1 62A8F9F9
@@ -1159,4 +1128,196 @@ Wire Wire Line
 	1950 2850 2200 2850
 Wire Wire Line
 	1950 2950 2200 2950
+$Comp
+L Connector:Conn_01x20_Male J2
+U 1 1 62D1F1CE
+P 5000 2250
+F 0 "J2" H 4972 2224 50  0000 R CNN
+F 1 "Conn_01x20_Male" H 4972 2133 50  0000 R CNN
+F 2 "Zimo_Manual_PCB:PinOut_01x20" H 5000 2250 50  0001 C CNN
+F 3 "~" H 5000 2250 50  0001 C CNN
+	1    5000 2250
+	-1   0    0    -1  
+$EndComp
+Wire Wire Line
+	3600 3250 4800 3250
+Wire Wire Line
+	3600 3150 4800 3150
+Wire Wire Line
+	3750 3050 4800 3050
+Wire Wire Line
+	3600 2950 4800 2950
+Wire Wire Line
+	3600 2850 4800 2850
+Wire Wire Line
+	3600 2750 4800 2750
+Wire Wire Line
+	3600 2650 4800 2650
+Wire Wire Line
+	3600 2450 4800 2450
+Wire Wire Line
+	3750 2550 4800 2550
+Wire Wire Line
+	3600 2350 4800 2350
+Wire Wire Line
+	3600 2250 4550 2250
+Wire Wire Line
+	3600 2150 4800 2150
+Wire Wire Line
+	3600 2050 4800 2050
+Wire Wire Line
+	3600 1950 4800 1950
+Wire Wire Line
+	3600 1850 4800 1850
+Text GLabel 4250 1100 1    50   Input ~ 0
+SWD_VSYS
+Wire Wire Line
+	4250 1100 4250 1450
+Connection ~ 4250 1450
+Wire Wire Line
+	4250 1450 4800 1450
+Wire Wire Line
+	3600 1650 4800 1650
+Wire Wire Line
+	3750 1550 4450 1550
+Connection ~ 3750 1550
+Text GLabel 4350 1100 1    50   Input ~ 0
+PB_HI
+Wire Wire Line
+	4350 1100 4350 1750
+Connection ~ 4350 1750
+Wire Wire Line
+	4350 1750 4800 1750
+Wire Wire Line
+	3600 1350 4800 1350
+Wire Wire Line
+	4000 1100 4000 1750
+Wire Wire Line
+	3600 1750 4000 1750
+Wire Wire Line
+	4000 1750 4350 1750
+Connection ~ 4000 1750
+Wire Wire Line
+	3750 1100 3750 1450
+Wire Wire Line
+	3600 1450 3750 1450
+Wire Wire Line
+	3750 1450 4250 1450
+Connection ~ 3750 1450
+Text Notes 4400 700  0    50   ~ 0
+PB pins are used for hardware pitch bend
+Text GLabel 4450 1100 1    50   Input ~ 0
+PB_LO
+Wire Wire Line
+	4450 1100 4450 1550
+Connection ~ 4450 1550
+Wire Wire Line
+	4450 1550 4800 1550
+Text GLabel 4550 1100 1    50   Input ~ 0
+PB_VAL
+Wire Wire Line
+	4550 1100 4550 2250
+Connection ~ 4550 2250
+Wire Wire Line
+	4550 2250 4800 2250
+$Comp
+L power:GND #PWR0103
+U 1 1 62E5343A
+P 6150 5850
+F 0 "#PWR0103" H 6150 5600 50  0001 C CNN
+F 1 "GND" H 6155 5677 50  0000 C CNN
+F 2 "" H 6150 5850 50  0001 C CNN
+F 3 "" H 6150 5850 50  0001 C CNN
+	1    6150 5850
+	1    0    0    -1  
+$EndComp
+Wire Wire Line
+	6150 5850 6150 5750
+Wire Wire Line
+	6150 5750 6050 5750
+$Comp
+L power:+3.3V #PWR0104
+U 1 1 62E5ECD0
+P 6200 5650
+F 0 "#PWR0104" H 6200 5500 50  0001 C CNN
+F 1 "+3.3V" V 6200 5900 50  0000 C CNN
+F 2 "" H 6200 5650 50  0001 C CNN
+F 3 "" H 6200 5650 50  0001 C CNN
+	1    6200 5650
+	0    1    1    0   
+$EndComp
+$Comp
+L power:+5V #PWR0105
+U 1 1 62E5FE77
+P 6200 5550
+F 0 "#PWR0105" H 6200 5400 50  0001 C CNN
+F 1 "+5V" V 6200 5750 50  0000 C CNN
+F 2 "" H 6200 5550 50  0001 C CNN
+F 3 "" H 6200 5550 50  0001 C CNN
+	1    6200 5550
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6200 5650 6050 5650
+Wire Wire Line
+	6200 5550 6050 5550
+$Comp
+L power:+12V #PWR0106
+U 1 1 62E76909
+P 6200 5450
+F 0 "#PWR0106" H 6200 5300 50  0001 C CNN
+F 1 "+12V" V 6200 5650 50  0000 C CNN
+F 2 "" H 6200 5450 50  0001 C CNN
+F 3 "" H 6200 5450 50  0001 C CNN
+	1    6200 5450
+	0    1    1    0   
+$EndComp
+Wire Wire Line
+	6200 5450 6050 5450
+$Comp
+L Connector:Conn_01x02_Male J3
+U 1 1 62E86738
+P 5850 5450
+F 0 "J3" H 5958 5631 50  0000 C CNN
+F 1 "Power 1" H 5958 5540 50  0000 C CNN
+F 2 "Zimo_Manual_PCB:NSL25_01x02_Vertical" H 5850 5450 50  0001 C CNN
+F 3 "~" H 5850 5450 50  0001 C CNN
+	1    5850 5450
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J4
+U 1 1 62E86C77
+P 5850 5650
+F 0 "J4" H 5950 5350 50  0000 C CNN
+F 1 "Power 2" H 5950 5450 50  0000 C CNN
+F 2 "Zimo_Manual_PCB:NSL25_01x02_Vertical" H 5850 5650 50  0001 C CNN
+F 3 "~" H 5850 5650 50  0001 C CNN
+	1    5850 5650
+	1    0    0    -1  
+$EndComp
+$Comp
+L Connector:Conn_01x02_Male J5
+U 1 1 62ED1173
+P 3500 6350
+F 0 "J5" V 3300 6500 50  0000 R CNN
+F 1 "Power to MCU" V 3400 6700 50  0000 R CNN
+F 2 "Zimo_Manual_PCB:PinOut_01x02" H 3500 6350 50  0001 C CNN
+F 3 "~" H 3500 6350 50  0001 C CNN
+	1    3500 6350
+	0    -1   1    0   
+$EndComp
+Wire Wire Line
+	3800 6450 3800 6550
+Wire Wire Line
+	3800 6550 3600 6550
+Wire Wire Line
+	3500 6550 3450 6550
+Connection ~ 3450 6550
+Text Notes 2000 6050 0    50   ~ 10
+When flashing programs to MCU, this \njumper MUST BE disconnected. The \nMCU should receive its power from \nthe SWD device (another RPi Pico, \nPicoprobe).
+Wire Notes Line
+	3450 5850 3550 5850
+Wire Notes Line
+	3550 5850 3550 6150
 $EndSCHEMATC

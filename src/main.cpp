@@ -32,6 +32,10 @@
  * midi_to_cv.attach(midi_handler)
  * midi_to_cv.attach(dac)
  * midi_to_cv.attach(ui)
+ * 
+ * Flashing
+ * --------
+ * DISCONNECT FROM POWER BEFORE FLASHING!!!!
  */
 
 /*

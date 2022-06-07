@@ -61,7 +61,7 @@
 #define GP_CHANNEL_DIP_2    12
 #define GP_CHANNEL_DIP_3    13
 
-#define MIDI_OCTAVE_SHIFT   -1
+#define MIDI_OCTAVE_SHIFT   -3
 
 #define MIDI_UART_INSTANCE  uart1
 #define GP_MIDI_RX          9
