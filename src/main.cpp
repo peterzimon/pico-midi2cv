@@ -86,6 +86,7 @@ int main() {
     midi_to_cv.attach(&ui);
     
     while (1) {
+        ui.update();
         midi_to_cv.process();
     }
 

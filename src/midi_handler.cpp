@@ -22,7 +22,6 @@ void MidiHandler::read() {
     if (!uart_is_readable(MIDI_UART_INSTANCE)) return;
     
     uint8_t data = uart_getc(MIDI_UART_INSTANCE);
-    printf("%d \r\n", data);
     m_input_buffer.write_byte(data);
 
     m_parse_midi();
@@ -56,7 +55,7 @@ void MidiHandler::pitch_bend(uint8_t channel, uint16_t bend) {
 }
 
 int MidiHandler::note() {
-    return m_note;
+    return m_note + (12 * MIDI_OCTAVE_SHIFT);
 }
 
 /**
