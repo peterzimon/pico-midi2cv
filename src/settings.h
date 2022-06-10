@@ -92,10 +92,10 @@ struct Settings
                 // Note  | Should measure
                 //----------------------------
         0,      // C0    | 0V, leave this zero
-        0,      // C1    | 1V
-        0,      // C2    | 2V
-        0,      // C3    | 3V
-        0,      // C4    | 4V
+        5,      // C1    | 1V
+        4,      // C2    | 2V
+        6,      // C3    | 3V
+        3,      // C4    | 4V
         0,      // C5    | 5V
         0,      // C6    | 6V
         0,      // C7    | 7V

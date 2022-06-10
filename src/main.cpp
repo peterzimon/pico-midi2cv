@@ -80,9 +80,10 @@ MidiToCV midi_to_cv;
 int main() {
     stdio_init_all();
 
+    sleep_ms(2000);
+    ui.init();
     dac.init(DAC_SPI_PORT, GP_DAC_CS, GP_DAC_SCK, GP_DAC_MOSI);
     midi_handler.init();
-    ui.init();
     midi_to_cv.init();
 
     midi_to_cv.attach(&midi_handler);

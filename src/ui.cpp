@@ -29,7 +29,7 @@ void UI::init() {
     // Store initial value of pitchbend as a reference point
     m_pitchbend_reference = m_read_adc_samples(10);
 
-    printf("Pitchbend reference: %d", m_pitchbend_reference);
+    // printf("Pitchbend reference: %d", m_pitchbend_reference);
 }
 
 // Read all values on the UI
