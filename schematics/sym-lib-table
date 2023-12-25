@@ -1,0 +1,4 @@
+(sym_lib_table
+  (version 7)
+  (lib (name "pico-midi2cv-rescue")(type "KiCad")(uri "${KIPRJMOD}/pico-midi2cv-rescue.kicad_sym")(options "")(descr ""))
+)
