@@ -29,7 +29,7 @@ void MidiToCV::attach(MidiHandler *midi_handler) {
  * conversion.
  */
 void MidiToCV::process() {
-    
+
     // Read MIDI messages. This builds a note stack in m_midi.note_stack
     m_midi_handler->read();
 
@@ -49,13 +49,14 @@ void MidiToCV::process() {
     if (m_midi_handler->pitch_bend_dirty) {
         m_pitch_bend_cv = get_pitch_bend_cv(m_midi_handler->bend);
     } else {
-        m_pitch_bend_cv = get_pitch_bend_cv(m_ui->hw_pb_to_midi_pb());
+        // Uncomment this to use hardware pitchbend
+        // m_pitch_bend_cv = get_pitch_bend_cv(m_ui->hw_pb_to_midi_pb());
     }
 
     // Set CV voltage
     int cv = m_cv + m_pitch_bend_cv;
     cv = cv < 0 ? 0 : cv;
-    
+
     if (cv != m_last_cv) {
         m_dac->write(cv);
         m_last_cv = cv;
@@ -85,7 +86,7 @@ uint16_t MidiToCV::get_note_cv(uint8_t note) {
 }
 
 /**
- * Pitch bend value can be between 0 and 0x3fff with 0x2000 meaning no bend. 
+ * Pitch bend value can be between 0 and 0x3fff with 0x2000 meaning no bend.
  * Pitch bend CV calculation:
  * 1. Shift bend value to -0x2000 and 0x2000
  * 2. Get max bend CV value (2 semitones)

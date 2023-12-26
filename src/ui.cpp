@@ -14,8 +14,8 @@ void UI::init() {
 
     uint8_t midi_ch = midi_ch_0 | midi_ch_1 << 1 | midi_ch_2 << 2 | midi_ch_3;
     settings.midi_channel = midi_ch;
-    
-    // printf("Midi channel: %d\r\n", midi_ch);
+
+    printf("Midi channel: %d\r\n", midi_ch);
 
     // Pitchbend initialisation
     // Init ADC
@@ -40,7 +40,7 @@ void UI::update() {
 /**
  * Return the pitch bend value converted to MIDI value
  * 1. m_pitchbend_reference should be mapped to PITCH_BEND_CENTER (0x2000)
- * 2. m_pitchbend_reference +/- HW_PB_MAX_DIFF should be mapped to 
+ * 2. m_pitchbend_reference +/- HW_PB_MAX_DIFF should be mapped to
  *    MAX_PITCH_BEND (0x3fff) and 0x0000 respectively
  * 3. Returned value should not be between 0 and 0x3fff
  */
